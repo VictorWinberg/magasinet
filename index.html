@@ -1,0 +1,126 @@
+<html ng-app="app">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+
+  <title>Magasinet</title>
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+</head>
+<body>
+
+  <div class="section no-pad-bot" id="index-banner">
+    <div class="container">
+      <br><br>
+      <h1 class="header center orange-text">Magasinet</h1>
+      <div class="row center">
+        <h5 class="header col s12 light">Supercentral vardagslyx</h5>
+      </div>
+      <br><br>
+
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="section">
+
+      <div ng-controller="apartmentsCtrl">
+        <ul>
+          <li ng-repeat="x in data">
+            {{ x.lghnummer }}
+          </li>
+        </ul>
+      </div>
+
+      <table class="highlight">
+        <thead>
+          <tr>
+            <th>Title</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Text</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="section">
+
+      <!--   Icon Section   -->
+      <div class="row">
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">flash_on</i></h2>
+            <h5 class="center">Modernt</h5>
+
+            <p class="light">Den moderna byggnaden (Spolegatan 15) består av 77 lägenheter som lämpar sig för kompis- och parboende, en relativt ny och mycket omtyckt boendeform utvecklad av AF Bostäder, läs mer <a title="Mer om Magasinet 15" href="https://www.afbostader.se/lediga-bostader/bostadsomraden/magasinet/magasinet-15/">här</a>. I huset finns gemensamma balkonger. Området erbjuder bland annat en trivsam utemiljö med grillplats och ett stort varmgarage för cyklar med personligt ställ för varje hyresgäst. </p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">location_on</i></h2>
+            <h5 class="center">Centralt</h5>
+
+            <p class="light">På Magasinet har du centrala Lunds utbud bokstavligt talat för dina fötter. Här råder cityliv dygnet med såväl service, shopping, nöjen, turistattraktioner och inte minst stadens centralstation inom bekvämt gångavstånd för den som reser ofta. I gympadojor når du flera av universitetets institutioner och bibliotek samt Lundagård, studentlivets hjärta, inom tio minuter. I din absoluta närhet finns torgliv, större livsmedelsaffär, caféer, pizzerior och sushibutik. Magasinet är dessutom utmärkt beläget för att nå Lunds övriga stadsdelar på cykel.</p>
+          </div>
+        </div>
+
+        <div class="col s12 m4">
+          <div class="icon-block">
+            <h2 class="center light-blue-text"><i class="material-icons">settings</i></h2>
+            <h5 class="center">Statistik</h5>
+
+            <p class="center">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Spolegatan 15</th>
+                    <th>77 bostäder</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>4 kompisar</td>
+                    <td>1 st</td>
+                  </tr>
+                  <tr>
+                    <td>3 kompisar</td>
+                    <td>16 st</td>
+                  </tr>
+                  <tr>
+                    <td>2 kompisar</td>
+                    <td>35 st</td>
+                  </tr>
+                  <tr>
+                    <td>2 rums för par</td>
+                    <td>25 st</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <a href="https://www.afbostader.se/globalassets/bostadsomraden/a-omradeskartor/magasinet.pdf" class="btn-large waves-effect waves-light orange">Områdeskarta</a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
