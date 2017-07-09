@@ -9,8 +9,6 @@
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
 </head>
@@ -32,24 +30,28 @@
   <div class="container">
     <div class="section">
 
-      <div ng-controller="apartmentsCtrl">
-        <ul>
-          <li ng-repeat="x in data">
-            {{ x.lghnummer }}
-          </li>
-        </ul>
-      </div>
-
-      <table class="highlight">
+      <table class="highlight" ng-controller="apartmentsCtrl">
         <thead>
           <tr>
-            <th>Title</th>
+            <th>Lgh</th>
+            <th>Rum</th>
+            <th>Boarea</th>
+            <th>Månadshyra</th>
+            <th>Läge</th>
+            <th>Uthyrd</th>
+            <th>Ritning</th>
           </tr>
         </thead>
 
         <tbody>
-          <tr>
-            <td>Text</td>
+          <tr ng-repeat="x in data">
+            <td><a ng-href="https://www.afbostader.se/lediga-bostader/bostadsdetalj/?obj={{x.productId}}"> {{ x.lghnummer }}</a></td>
+            <td>{{ x.shortDescription }}</td>
+            <td>{{ x.sqrMtrs }} kvm</td>
+            <td>{{ x.rent }} kr</td>
+            <td>{{ x.location }}</td>
+            <td>{{ x.status }}</td>
+            <td><a ng-href="https://www.afbostader.se{{x.blueprint}}">PDF</a></td>
           </tr>
         </tbody>
       </table>
