@@ -2,9 +2,24 @@ const app = angular.module('app', [])
 
 app.controller('apartmentsCtrl', function($scope, $http) {
   $http.get("magasinet.json").then(function (response) {
-
     const data = response.data
     data.sort((a, b) => parseInt(a.lghnummer) - parseInt(b.lghnummer))
     $scope.data = data
+  })
+})
+
+app.controller('vacantProductsCtrl', function($scope, $http) {
+  $http.get("https://www.afbostader.se/redimo/rest/vacantproducts").then(function (response) {
+    const data = response.data.product
+
+    // Fix swedish areas to work with url
+    data.forEach(i => i.areaEncoded = i.area.replace(/[åÅäÄ]/g, 'a').replace(/[öÖ]/g, 'o'))
+
+    const magasinet = data.filter(i => i.area === 'Magasinet')
+    const other = data.filter(i => i.area !== 'Magasinet')
+
+    $scope.data = data
+    $scope.magasinet = magasinet
+    $scope.other = other
   })
 })

@@ -14,21 +14,109 @@
 </head>
 <body>
 
-  <div class="section no-pad-bot" id="index-banner">
+  <div class="section">
     <div class="container">
       <br><br>
       <h1 class="header center orange-text">Magasinet</h1>
       <div class="row center">
-        <h5 class="header col s12 light">Supercentral vardagslyx</h5>
+        <h5 class="light">Supercentral vardagslyx</h5>
       </div>
       <br><br>
-
     </div>
   </div>
 
 
-  <div class="container">
-    <div class="section">
+  <div class="section">
+    <div class="container">
+
+      <div ng-controller="vacantProductsCtrl">
+
+        <div ng-show="data.length">
+          <h5 class="light">AFB har lediga bostäder,
+            <span ng-class="magasinet.length > 0 ? 'orange-text' : ''">
+              {{ magasinet.length === 0 ? " men inte på magasinet." : "på magasinet!" }}
+            </span>
+          </h5>
+        </div>
+
+        <div ng-show="!data.length">
+          <h5 class="light">AFB har inga lediga bostäder :(</h5>
+        </div>
+
+        <br>
+
+        <a href="https://www.afbostader.se/lediga-bostader/bostadsomraden/magasinet">
+          <h5 ng-show="magasinet.length" class="orange-text light">Magasinet:</h5>
+        </a>
+
+        <table ng-show="magasinet.length" class="highlight">
+          <tbody>
+            <tr ng-repeat="x in other">
+              <td>
+                <span class="light" style="font-size: 1.2em">
+                  <span class="blue-text">{{ x.shortDescription }}</span> på
+                  <span class="blue-text">{{ x.sqrMtrs }}</span> kvm
+                </span>
+              </td>
+              <td>
+                {{ x.rent }} SEK <br>
+                Rum <a ng-href="https://www.afbostader.se/lediga-bostader/bostadsdetalj/?obj={{x.productId}}">
+                  {{ x.lghnummer }}
+                </a>
+              </td>
+              <td>
+                {{ x.numberOfReservations }} <br>
+                <span style="font-size:0.75em">bokningar</span>
+              </td>
+              <td style="font-size:0.75em">
+                <span class="blue-text"> Ansökningsdatum</span> <br>
+                Första datum <br>
+                Sista datum
+              </td>
+              <td style="font-size:0.8em">
+                <br>{{ x.reserveFromDate }}
+                <br>{{ x.reserveUntilDate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h5 ng-show="other.length" class="orange-text light">Annat:</h5>
+        <table ng-show="other.length" class="highlight">
+          <tbody>
+            <tr ng-repeat="x in other">
+              <td>
+                <a ng-href="https://www.afbostader.se/lediga-bostader/bostadsomraden/{{x.areaEncoded}}">
+                  {{ x.area }}
+                </a> <br>
+                <span class="light">{{ x.shortDescription }} på {{ x.sqrMtrs }} kvm</span>
+              </td>
+              <td>
+                {{ x.rent }} SEK <br>
+                Rum <a ng-href="https://www.afbostader.se/lediga-bostader/bostadsdetalj/?obj={{x.productId}}">
+                  {{ x.lghnummer }}
+                </a>
+              </td>
+              <td>
+                {{ x.numberOfReservations }} <br>
+                <span style="font-size:0.75em">bokningar</span>
+              </td>
+              <td style="font-size:0.75em">
+                <span class="blue-text"> Ansökningsdatum</span> <br>
+                Första datum <br>
+                Sista datum
+              </td>
+              <td style="font-size:0.8em">
+                <br>{{ x.reserveFromDate }}
+                <br>{{ x.reserveUntilDate }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+      <br>
 
       <table class="highlight sortable" ng-controller="apartmentsCtrl">
         <thead>
@@ -45,10 +133,12 @@
 
         <tbody>
           <tr ng-repeat="x in data">
-            <td><a ng-href="https://www.afbostader.se/lediga-bostader/bostadsdetalj/?obj={{x.productId}}"> {{ x.lghnummer }}</a></td>
+            <td><a ng-href="https://www.afbostader.se/lediga-bostader/bostadsdetalj/?obj={{x.productId}}">
+              {{ x.lghnummer }}
+            </a></td>
             <td>{{ x.shortDescription }}</td>
             <td>{{ x.sqrMtrs }} kvm</td>
-            <td>{{ x.rent }} kr</td>
+            <td>{{ x.rent }} SEK</td>
             <td>{{ x.location }}</td>
             <td>{{ x.status }}</td>
             <td><a ng-href="https://www.afbostader.se{{x.blueprint}}">PDF</a></td>
@@ -114,7 +204,8 @@
                 </tbody>
               </table>
 
-              <a href="https://www.afbostader.se/globalassets/bostadsomraden/a-omradeskartor/magasinet.pdf" class="btn-large waves-effect waves-light orange">Områdeskarta</a>
+              <a href="https://www.afbostader.se/globalassets/bostadsomraden/a-omradeskartor/magasinet.pdf"
+                 class="btn-large waves-effect waves-light orange">Områdeskarta</a>
             </p>
           </div>
         </div>
