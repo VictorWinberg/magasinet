@@ -14,10 +14,14 @@ app.controller('vacantProductsCtrl', function($scope, $http) {
     data.forEach(i => i.areaEncoded = i.area.replace(/[åÅäÄ]/g, 'a').replace(/[öÖ]/g, 'o'))
 
     const magasinet = data.filter(i => i.area === 'Magasinet')
-    const other = data.filter(i => i.area !== 'Magasinet')
+    let other = data.filter(i => i.area !== 'Magasinet')
 
     $scope.data = data
     $scope.magasinet = magasinet
+
+    const novisch = other.filter(i => i.priority === 'Novisch')
+    other = other.filter(i => i.priority !== 'Novisch')
+    $scope.novisch = novisch
     $scope.other = other
   })
 })

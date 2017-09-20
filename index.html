@@ -51,7 +51,7 @@
 
         <table ng-show="magasinet.length" class="highlight">
           <tbody>
-            <tr ng-repeat="x in other">
+            <tr ng-repeat="x in magasinet">
               <td>
                 <span class="light" style="font-size: 1.2em">
                   <span class="blue-text">{{ x.shortDescription }}</span> på
@@ -114,6 +114,8 @@
           </tbody>
         </table>
 
+        <p ng-show="novisch.length">Samt {{ novisch.length }} Novish bostäder.</p>
+
       </div>
 
       <br>
@@ -126,7 +128,7 @@
             <th>Boarea</th>
             <th>Hyra</th>
             <th>Läge</th>
-            <th>Uthyrd</th>
+            <th>Uthyrd *</th>
             <th>Ritning</th>
           </tr>
         </thead>
@@ -146,9 +148,7 @@
         </tbody>
       </table>
 
-    </div>
-
-    <div class="section">
+      <p>* Uppdaterad 9 juli 2017</p>
 
       <!--   Icon Section   -->
       <div class="row">
